@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Jo &amp; Drew’s Wedding – Seating & Menu</title>
+<style>
+:root{--bg:#fff;--card:#f2f8fc;--ink:#13294B;--mute:#4a5f7c;--blue:#7BAFD4;--navy:#13294B;--line:#d3e3f0;--onblue:#13294B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1d38;--card:#16305a;--ink:#fff;--mute:#b9cde0;--line:#2b4a7a;--navy:#7BAFD4}}
+:root[data-theme="dark"]{--bg:#0d1d38;--card:#16305a;--ink:#fff;--mute:#b9cde0;--line:#2b4a7a;--navy:#7BAFD4}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+header{background:#13294B;color:#fff;text-align:center;padding:28px 16px 22px;border-bottom:5px solid #7BAFD4}
+header small{letter-spacing:.25em;text-transform:uppercase;color:#7BAFD4;font:600 12px system-ui,sans-serif}
+header h1{margin:8px 0 4px;font-weight:400;font-size:30px}
+header p{margin:0;color:#cfe3f2;font-size:15px;font-style:italic}
+main{max-width:640px;margin:0 auto;padding:18px 16px}
+section{display:none}section.on{display:block}
+h2{font-weight:400;font-size:24px;margin:6px 0 12px;color:var(--navy)}
+input[type=search]{width:100%;font:17px system-ui,sans-serif;padding:14px 16px;border:2px solid #7BAFD4;border-radius:12px;background:var(--bg);color:var(--ink)}
+.res{margin-top:12px;display:grid;gap:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:system-ui,sans-serif}
+.guest{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:17px}
+.badge{background:#13294B;color:#fff;border-radius:20px;padding:5px 12px;font-size:14px;white-space:nowrap}
+.hint{color:var(--mute);font:14px system-ui,sans-serif;margin:8px 0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:6px 0 10px}
+.chip{flex:none;font:15px system-ui,sans-serif;padding:9px 14px;border-radius:20px;border:1.5px solid #7BAFD4;background:var(--bg);color:var(--ink)}
+.chip.on{background:#7BAFD4;color:#13294B;font-weight:600}
+svg{width:100%;height:auto;display:block}
+.t{fill:#fff;stroke:#13294B;stroke-width:2;cursor:pointer}
+.t.on{fill:#7BAFD4}.seat{fill:#fff;stroke:#13294B;stroke-width:1.5;cursor:pointer}.seat.on{fill:#7BAFD4}.seat.me{fill:#13294B;stroke:#7BAFD4;stroke-width:3.5}
+.lbl{font:600 15px system-ui,sans-serif;fill:#13294B;pointer-events:none;text-anchor:middle}
+.fx{fill:#e6f1f9;stroke:#7BAFD4;stroke-width:1.5}
+.fl{font:11px system-ui,sans-serif;fill:#4a5f7c;text-anchor:middle}
+.menu h3{margin:22px 0 6px;font-weight:400;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-family:system-ui,sans-serif;border-bottom:2px solid #7BAFD4;padding-bottom:6px}
+.dish{padding:10px 0;border-bottom:1px solid var(--line)}
+.dish b{font-weight:600;font-size:18px}
+.dish span{display:block;color:var(--mute);font:14px system-ui,sans-serif;margin-top:2px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#13294B;border-top:3px solid #7BAFD4;padding-bottom:env(safe-area-inset-bottom,0px)}
+nav a{flex:1;text-align:center;padding:14px 4px;color:#cfe3f2;text-decoration:none;font:600 14px system-ui,sans-serif}
+nav a.on{color:#fff;background:#1d3d6e;box-shadow:inset 0 3px #7BAFD4}
+body,input,.card,.hint,.chip,.dish span,.menu h3,header small{font-family:Kalam,"Segoe Print","Bradley Hand",cursive}
+svg .lbl,svg .fl{font-family:Kalam,"Segoe Print",cursive}
+header h1,h2,.dish b,.badge,nav a{font-family:"Dancing Script","Brush Script MT",cursive;font-weight:700}
+header h1{font-size:38px;line-height:1.1}h2{font-size:34px}.dish b{font-size:25px}.badge{font-size:18px}nav a{font-size:19px}
+.menu h3{font-weight:700;letter-spacing:.12em}
+.mapwrap{overflow-x:auto}body.planner svg{min-width:560px}
+#planner{display:none;margin-top:14px}body.planner #planner{display:block}
+.btn{font:700 15px Kalam,cursive;padding:10px 14px;border-radius:10px;border:2px solid #13294B;background:#7BAFD4;color:#13294B;margin:6px 6px 0 0}
+#out{width:100%;margin-top:8px;display:none;font:12px monospace}
+.ghost{position:fixed;transform:translate(-50%,-140%);background:#13294B;color:#fff;border:2px solid #7BAFD4;padding:6px 14px;border-radius:18px;pointer-events:none;z-index:99}
+.h{touch-action:none;cursor:grab;font-size:22px;padding:2px 10px 2px 0;color:var(--mute)}
+body.edit .seat{touch-action:none}
+.guest.sel{outline:3px solid #7BAFD4}
+body.planner .seat:not(.occ){fill:#fff}body.planner .seat.occ{fill:#7BAFD4}body.planner .seat.me{fill:#13294B}
+body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.h{padding:10px 14px 10px 4px;font-size:24px}
+.menu h3{font-size:22px;font-weight:700;letter-spacing:.1em}
+.x{padding:8px 2px 8px 10px;color:var(--mute);font-size:18px;cursor:pointer}.x.d{color:#b3261e;font-weight:700}
+</style>
+</head>
+<body>
+<header><small>Welcome</small><h1>Jo &amp; Drew’s Wedding</h1><p>01.17.2027 · The Merrimon Wynne House</p><p style="margin-top:6px;font-size:14px">Find your seat &amp; see tonight’s menu</p></header>
+<main>
+<section id="seating" class="on">
+<h2>Find Your Seat</h2>
+<input type="search" id="q" placeholder="Type your name…" autocomplete="off">
+<div class="res" id="res"></div>
+<p class="hint" id="qhint">Start typing to find your table.</p>
+</section>
+
+<section id="map">
+<h2>Floor Plan</h2>
+<p class="hint">Tap a table to see who’s sitting there. The circles are seats; your seat shows in dark navy.</p>
+<div class="mapwrap"><svg viewBox="0 0 320 530" role="img" aria-label="Reception floor plan">
+<rect class="fx" x="100" y="8" width="120" height="26" rx="4"/><text class="fl" x="160" y="25">Bar</text>
+
+<rect class="fx" x="118" y="215" width="100" height="110" rx="4"/><text class="fl" x="168" y="274" style="font-size:14px">Dance Floor</text>
+<rect class="fx" x="240" y="250" width="44" height="40" rx="4"/><text class="fl" x="262" y="274">DJ</text>
+<g id="tables"></g>
+<text class="fl" x="160" y="515" style="font-size:13px">Outdoor Lounge ↓</text>
+
+
+</svg></div>
+<div class="card" id="tinfo" style="margin-top:12px"><span class="hint">No table selected.</span></div>
+<div id="planner">
+<div class="card"><b>Seating planner</b><p class="hint" id="pmsg">Locked. Tap Unlock to move names.</p>
+<button class="btn" id="lockbtn">🔓 Unlock to edit</button><button class="btn" id="copybtn" style="width:100%;font-size:18px;padding:14px">📋 Copy seating list</button><button class="btn" id="resetbtn">Reset</button>
+<textarea id="out" rows="4"></textarea>
+<textarea id="inp" rows="3" placeholder="To restore a saved seating list, paste it here" style="width:100%;margin-top:10px;font:12px monospace"></textarea>
+<button class="btn" id="loadbtn" style="width:100%;font-size:17px">📥 Load pasted list</button></div>
+<div style="display:flex;gap:8px;margin-top:12px"><input type="search" id="addn" placeholder="Add guest name…" style="flex:1"><button class="btn" id="addbtn" style="margin:0">Add</button></div>
+<input type="search" id="pf" placeholder="Filter guests…" style="margin-top:12px">
+<div class="res" id="plist"></div>
+</div>
+</section>
+
+<section id="menu" class="menu">
+<h2>Tonight’s Menu</h2>
+<h3>Drinks</h3>
+<div class="dish"><b>Beer</b></div>
+<div class="dish"><b>Wine</b></div>
+<h3 style="font-size:17px;letter-spacing:.03em;white-space:nowrap">Cocktail Hour’s Hors D’oeuvres</h3>
+<div class="dish"><b>Avocado and Tomato Crostini</b><span>Traditional toasted crostini topped with mashed avocado, tomato relish, lemon oil, balsamic and Aleppo chili</span></div>
+<div class="dish"><b>Macaroni and Cheese Bites</b><span>Fried gruyere and cheddar macaroni and cheese bites topped with a truffle aioli</span></div>
+<div class="dish"><b>Figs in a Blanket</b><span>Spiced honey-glazed figs with goat cheese wrapped in puff pastry</span></div>
+<h3>Salad &amp; Bread</h3>
+<div class="dish"><b>Garden Salad</b><span>Mixed greens with radishes, carrots, cucumbers, heirloom tomatoes and a balsamic vinaigrette</span></div>
+<div class="dish"><b>Bread and Butter</b><span>House yeast rolls with whipped cinnamon butter</span></div>
+<h3>Entrées</h3>
+<div class="dish"><b>Flank Steak</b><span>With a red wine demi and cranberry chimichurri</span></div>
+<div class="dish"><b>Parmesan Crusted Chicken</b><span>Parmesan crusted chicken breast with a roasted garlic and dill cream sauce</span></div>
+<div class="dish"><b>Vegan Farro Dish</b><span>Farro with green beans, pepper, red onions, bok choy, spinach and sugar snap peas, topped with crispy corn nuts</span></div>
+<h3>Sides</h3>
+<div class="dish"><b>Crispy Brussels Sprouts</b><span>Tossed in a Sicilian lemon white balsamic vinegar</span></div>
+<div class="dish"><b>Brown Butter Mashed Potatoes</b><span>Creamy Yukon gold mashed potatoes with brown butter</span></div>
+<h3>Desserts</h3>
+<div class="dish"><b>Cake</b></div>
+<div class="dish"><b>Cupcakes</b><span>Buttercream icing on chocolate cake<br>Buttercream icing on Superfetti cake<br>Cream Cheese icing on vanilla cake<br>Cookies and Cream Mousse on vanilla cake<br>Cookies and Cream Mousse on vanilla and chocolate cake<br>Fudge icing on chocolate cake</span></div>
+</section>
+</main>
+<nav><a href="#seating" data-t="seating">Find Seat</a><a href="#map" data-t="map">Floor Plan</a><a href="#menu" data-t="menu">Menu</a></nav>
+
+<script>
+/* ===== EDIT YOUR GUESTS HERE: ["Full Name", "tableId", optionalSeatNumber] (seats number down the left side first, then down the right) — ids: head, 1, 2, 3, 4, 5 ===== */
+const RAW="Mariko Azuma|Eunhee Bae|Pete Bearden|Pam Bearden>Pete Bearden|Todd BenDor|Amanda BenDor>Todd BenDor|Arnom Bridgers|Cynthia Bridgers>Arnom Bridgers|Abby Cassario|Enoch Chang|Joanne Chen|Warren Christian|Erin Davis|Timothy Davis|Sherry Day|Ashley Dover>Lindsay Martin Oluyede|Zack Drum>Charlie Prior|Casey Garr|Reed Hodges|Anne Hu>Enoch Chang|Jiwoon Jeong|Jaie Johnson>Al Smith|Kennedy Kirtland>Reed Hodges|Jo Kwon|Youngsun Kwon|Louis Le>Edith March|Yichen Lee|Edith March|Lindsay Martin Oluyede|Sabrina McGee|Tim McGee>Sabrina McGee|Utsav Patel|Nandha Patel>Utsav Patel|Kelli Pratt>Joseph Smith|Charlie Prior|Steven Riley|Mary Riley>Steven Riley|Nora Schwaller|Jiyeon Shin|Al Smith|Joseph Smith|Drew Smith>Jo Kwon|Gigi Taylor|Mason Taylor>Casey Garr|Sadie Wilson>Warren Christian|Semi Yang>Youngsun Kwon|Soohyun Yoon|Keith Whitley|Karlee Schell|Kenzie Smith|Arlene Ramirez";
+let GUESTS=RAW.split("|").map(s=>{const p=s.split(">");return [p[0],"",null,p[1]||""];});
+/* Head table: 10 seats left (1–10), 6 right (11–16) = 16. Tables 1–4 seat 16; table 5 seats 8. Total 88. */
+const TABLES=[
+{id:"head",name:"Head Table",seats:16,x:20,y:205,w:38,h:130,lx:39,ly:270},
+{id:"1",name:"Table 1",seats:16,x:50,y:60,w:60,h:140,lx:80,ly:135},
+{id:"2",name:"Table 2",seats:16,x:50,y:345,w:60,h:140,lx:80,ly:420},
+{id:"3",name:"Table 3",seats:16,x:210,y:60,w:60,h:140,lx:240,ly:135},
+{id:"4",name:"Table 4",seats:16,x:210,y:345,w:60,h:140,lx:240,ly:420},
+{id:"5",name:"Table 5",seats:8,x:140,y:365,w:40,h:90,lx:160,ly:415}
+];
+const $=s=>document.querySelector(s),tn=id=>TABLES.find(t=>t.id===id).name;
+const g=$("#tables");
+TABLES.forEach(t=>{
+ const r=document.createElementNS("http://www.w3.org/2000/svg","rect");
+ r.setAttribute("class","t");r.id="t"+t.id;
+ ["x","y","width","height"].forEach((a,i)=>r.setAttribute(a,[t.x,t.y,t.w,t.h][i]));
+ r.setAttribute("rx",5);r.onclick=()=>pick(t.id);g.appendChild(r);
+ const x=document.createElementNS("http://www.w3.org/2000/svg","text");
+ x.setAttribute("class","lbl");x.setAttribute("x",t.lx);x.setAttribute("y",t.ly);
+ if(t.id==="head"){x.setAttribute("transform",`rotate(-90 ${t.lx} ${t.ly})`);x.textContent="Head";}
+ else x.textContent=t.id;
+ g.appendChild(x);
+ const pos=[];
+ if(t.id==="head"){
+  for(let k=0;k<10;k++)pos.push([t.x-8,t.y+13*k+6.5]);
+  [0,1,2,7,8,9].forEach(k=>pos.push([t.x+t.w+8,t.y+13*k+6.5]));
+ }else{const half=t.seats/2,gap=t.h/half;for(let i=0;i<t.seats;i++){const left=i<half,k=left?i:i-half;pos.push([left?t.x-8:t.x+t.w+8,t.y+gap*k+gap/2]);}}
+ pos.forEach((p,i)=>{
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("class","seat");c.id="s"+t.id+"-"+(i+1);
+  c.setAttribute("cx",p[0]);c.setAttribute("cy",p[1]);c.setAttribute("r",t.id==="head"?5:5.5);
+  c.onclick=()=>seatTap(t.id,i+1);c.addEventListener("pointerdown",ev=>seatDown(ev,t.id,i+1));g.appendChild(c);
+ });
+});
+
+function pick(id,seat){
+ document.querySelectorAll(".t").forEach(e=>e.classList.toggle("on",e.id==="t"+id||(id==="head"&&e.id==="tsweet")));
+ document.querySelectorAll(".seat").forEach(e=>{const p=e.id.slice(1).split("-");e.classList.toggle("on",p[0]===id);e.classList.toggle("me",!!seat&&p[0]===id&&+p[1]===seat);});
+ const t=TABLES.find(t=>t.id===id),l=GUESTS.filter(x=>x[1]===id).sort((a,b)=>(a[2]||999)-(b[2]||999));
+ const b=$("#tinfo");b.textContent="";
+ const h=document.createElement("b");h.textContent=t.name+" · "+t.seats+" seats";b.appendChild(h);
+ const lb=id==="head"?"Head":id;
+ if(!l.length){const p=document.createElement("div");p.className="hint";p.textContent="No guests listed yet.";b.appendChild(p);}
+ l.forEach(x=>{const p=document.createElement("div");p.style.cssText="padding:4px 0;font-size:16px";p.textContent=(x[2]?lb+"-"+x[2]+"  ":"")+x[0];if(seat&&x[2]===seat)p.style.fontWeight="700";b.appendChild(p);});
+}
+function search(){
+ const v=$("#q").value.trim().toLowerCase(),r=$("#res");r.textContent="";
+ $("#qhint").style.display=v?"none":"block";
+ if(!v)return;
+ const m=GUESTS.filter(x=>x[0].toLowerCase().includes(v)).slice(0,20);
+ if(!m.length){const d=document.createElement("div");d.className="card";d.textContent="No match yet — try your first or last name.";r.appendChild(d);return;}
+ m.forEach(x=>{
+  const d=document.createElement("div");d.className="card guest";
+  const n=document.createElement("span");n.textContent=x[0];
+  const b=document.createElement("span");b.className="badge";b.textContent=x[1]?tn(x[1])+(x[2]?" · Seat "+x[2]:""):"Not seated yet";
+  d.append(n,b);d.onclick=()=>{if(x[1]){location.hash="map";pick(x[1],x[2]);}};r.appendChild(d);
+ });
+}
+$("#q").addEventListener("input",search);
+let editing=false,sel=null,drag=null,rs=0,delIdx=null;
+try{const s=JSON.parse(localStorage.getItem("seating2")||"null");if(Array.isArray(s)&&s.length)GUESTS=s;}catch(e){}
+const pm=t=>{$("#pmsg").textContent=t;};
+function save(){try{localStorage.setItem("seating2",JSON.stringify(GUESTS));}catch(e){}}
+function at(t,s){return GUESTS.findIndex(x=>x[1]===t&&x[2]===s);}
+function paint(){
+ document.querySelectorAll(".seat").forEach(e=>{const p=e.id.slice(1).split("-");e.classList.toggle("occ",at(p[0],+p[1])>-1);if(sel!==null)e.classList.toggle("me",GUESTS[sel][1]===p[0]&&GUESTS[sel][2]===+p[1]);});
+ const f=$("#pf").value.trim().toLowerCase(),l=$("#plist");l.textContent="";
+ GUESTS.map((x,i)=>[x,i]).filter(a=>a[0][0].toLowerCase().includes(f)).sort((a,b)=>a[0][0].localeCompare(b[0][0])).forEach(a=>{
+  const x=a[0],i=a[1],d=document.createElement("div");d.className="card guest"+(i===sel?" sel":"");
+  const h=document.createElement("span");h.className="h";h.textContent="⠿";h.addEventListener("pointerdown",e=>startDrag(e,i));
+  const n=document.createElement("span");n.textContent=x[0];n.style.flex="1";
+  const b=document.createElement("span");b.className="badge";b.textContent=x[1]?tn(x[1])+" · "+(x[2]||"?"):"Unseated";
+  const del=document.createElement("span");del.className="x"+(delIdx===i?" d":"");del.textContent=delIdx===i?"Delete?":"✕";
+  del.onclick=e=>{e.stopPropagation();if(!editing){pm("Tap Unlock first.");return;}if(delIdx!==i){delIdx=i;pm("Tap Delete? again to remove "+x[0]+".");paint();return;}const nm=GUESTS[i][0];GUESTS.splice(i,1);delIdx=null;sel=null;save();paint();pm("Deleted "+nm+".");};
+  d.append(h,n,b,del);d.onclick=()=>{delIdx=null;if(!editing){pm("Locked. Tap Unlock first.");return;}sel=sel===i?null:i;pm(sel===null?"Tap a name, then a seat.":"Selected "+x[0]+" — tap a seat to place.");paint();};
+  l.appendChild(d);
+ });
+}
+function assign(i,t,s){
+ const o=at(t,s),g=GUESTS[i];
+ if(o>-1&&o!==i){GUESTS[o][1]=g[1];GUESTS[o][2]=g[2];}
+ g[1]=t;g[2]=s;sel=null;save();paint();pick(t,s);
+ pm(g[0]+" → "+tn(t)+", seat "+s);
+}
+function seatTap(t,s){
+ if(!editing){pick(t,s);return;}
+ const o=at(t,s);
+ if(sel!==null)assign(sel,t,s);
+ else if(o>-1){sel=o;pm("Selected "+GUESTS[o][0]+" — tap another seat to move or swap.");paint();}
+ else pm("Empty seat. Pick a name first.");
+}
+function seatDown(e,t,s){const o=at(t,s);if(editing&&o>-1)startDrag(e,o);}
+function startDrag(e,i){
+ if(!editing){pm("Locked. Tap Unlock first.");return;}
+ e.preventDefault();
+ const gh=document.createElement("div");gh.className="ghost";gh.textContent=GUESTS[i][0];document.body.appendChild(gh);
+ drag={i,gh,moved:false};place(e);addEventListener("touchmove",pd,{passive:false});
+ addEventListener("pointermove",move);addEventListener("pointerup",end,{once:true});addEventListener("pointercancel",end,{once:true});
+}
+document.addEventListener("contextmenu",e=>{if(editing)e.preventDefault();});
+function pd(e){e.preventDefault();}
+function place(e){drag.gh.style.left=e.clientX+"px";drag.gh.style.top=e.clientY+"px";}
+function move(e){if(!drag)return;drag.moved=true;place(e);}
+function end(e){
+ if(!drag)return;
+ removeEventListener("pointermove",move);removeEventListener("touchmove",pd);const d=drag;drag=null;d.gh.remove();
+ if(!d.moved)return;
+ const el=document.elementFromPoint(e.clientX,e.clientY);
+ if(el&&el.classList.contains("seat")){const p=el.id.slice(1).split("-");assign(d.i,p[0],+p[1]);}
+}
+$("#lockbtn").onclick=()=>{editing=!editing;document.body.classList.toggle("edit",editing);$("#lockbtn").textContent=editing?"🔒 Lock & save":"🔓 Unlock to edit";pm(editing?"Editing on. Drag a name onto a seat, or tap a name then a seat.":"Locked and saved on this device.");sel=null;paint();};
+$("#copybtn").onclick=()=>{const t="let GUESTS="+JSON.stringify(GUESTS)+";",o=$("#out");o.style.display="block";o.value=t;o.focus();o.select();o.setSelectionRange(0,t.length);let ok=false;try{ok=document.execCommand("copy");}catch(e){}
+ if(ok)pm("Copied! Paste it into your chat with Claude and send.");
+ else{try{navigator.clipboard.writeText(t).then(()=>pm("Copied! Paste it into your chat with Claude and send."),()=>pm("Press and hold the text below, choose Select All, then Copy."));}catch(e){pm("Press and hold the text below, choose Select All, then Copy.");}}};
+$("#resetbtn").onclick=()=>{if(!rs){rs=1;$("#resetbtn").textContent="Tap again to confirm";return;}try{localStorage.removeItem("seating2");}catch(e){}location.reload();};
+$("#loadbtn").onclick=()=>{
+ if(!editing){pm("Tap Unlock to edit first, then load the list.");return;}
+ try{
+  const t=$("#inp").value.trim().replace(/^let\s+GUESTS\s*=\s*/,"").replace(/;\s*$/,""),a=JSON.parse(t);
+  if(!Array.isArray(a)||!a.length||!a.every(x=>Array.isArray(x)&&typeof x[0]==="string"))throw 0;
+  GUESTS=a.map(x=>[x[0],x[1]||"",x[2]==null?null:x[2],x[3]||""]);sel=null;save();paint();$("#inp").value="";pm("Loaded "+GUESTS.length+" guests.");
+ }catch(e){pm("That didn't look like a seating list. Paste the whole text that starts with let GUESTS=.");}
+};
+function addGuest(){
+ const i=$("#addn"),n=i.value.trim();
+ if(!n)return;
+ if(!editing){pm("Tap Unlock to edit first, then add the guest.");return;}
+ GUESTS.push([n,"",null,""]);i.value="";sel=GUESTS.length-1;save();paint();
+ pm("Added "+n+". Now tap a seat to place them.");
+}
+$("#addbtn").onclick=addGuest;
+$("#addn").addEventListener("keydown",e=>{if(e.key==="Enter")addGuest();});
+$("#pf").addEventListener("input",paint);
+function route(){
+ const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();
+ document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===k));
+ document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===k));
+ window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
