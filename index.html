@@ -87,7 +87,7 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 <rect class="fx" id="dance" style="cursor:pointer" x="118" y="215" width="100" height="110" rx="4"/><text class="fl" x="168" y="274" style="font-size:14px;pointer-events:none">Dance Floor</text>
 <rect class="fx" x="240" y="250" width="44" height="40" rx="4"/><text class="fl" x="262" y="274">DJ</text>
 <g id="tables"></g>
-<text class="fl" x="160" y="515" style="font-size:13px">Outdoor Lounge ↓</text>
+<text class="fl" x="160" y="515" style="font-size:13px">Outdoor Lounge </text>
 
 
 </svg></div>
@@ -97,7 +97,7 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 <button class="btn" id="lockbtn">🔓 Unlock to edit</button><button class="btn" id="copybtn" style="width:100%;font-size:18px;padding:14px">📋 Copy seating list</button><button class="btn" id="resetbtn">Reset</button>
 <textarea id="out" rows="4"></textarea>
 <textarea id="inp" rows="3" placeholder="To restore a saved seating list, paste it here" style="width:100%;margin-top:10px;font:12px monospace"></textarea>
-<button class="btn" id="loadbtn" style="width:100%;font-size:17px">📥 Load pasted list</button></div>
+<button class="btn" id="loadbtn" style="width:100%;font-size:17px"> Load pasted list</button></div>
 <div style="display:flex;gap:8px;margin-top:12px"><input type="search" id="addn" placeholder="Add guest name…" style="flex:1"><button class="btn" id="addbtn" style="margin:0">Add</button></div>
 <input type="search" id="pf" placeholder="Filter guests…" style="margin-top:12px">
 <div class="res" id="plist"></div>
@@ -269,12 +269,12 @@ Object.keys(SEATING).forEach(t=>SEATING[t].forEach((n,i)=>{if(n)GUESTS.push([n,t
 UNSEATED.forEach(n=>GUESTS.push([n,"",null,""]));
 /* Head table: 10 seats left (1–10), 6 right (11–16) = 16. Tables 1–4 seat 16; table 5 seats 8. Total 88. */
 const TABLES=[
-{id:"head",name:"Head Table",seats:16,x:20,y:205,w:38,h:130,lx:39,ly:270},
-{id:"1",name:"Table 1",seats:16,x:50,y:60,w:60,h:140,lx:80,ly:135},
-{id:"2",name:"Table 2",seats:16,x:50,y:345,w:60,h:140,lx:80,ly:420},
-{id:"3",name:"Table 3",seats:16,x:210,y:60,w:60,h:140,lx:240,ly:135},
-{id:"4",name:"Table 4",seats:16,x:210,y:345,w:60,h:140,lx:240,ly:420},
-{id:"5",name:"Table 5",seats:8,x:140,y:365,w:40,h:90,lx:160,ly:415}
+ {id:"head",name:"Head Table",seats:16,x:20,y:205,w:50,h:110,lx:45,ly:270},
+ {id:"1",name:"Table 1",seats:16,x:50,y:60,w:50,h:110,lx:75,ly:120},
+ {id:"2",name:"Table 2",seats:16,x:50,y:345,w:50,h:110,lx:75,ly:405},
+ {id:"3",name:"Table 3",seats:16,x:210,y:60,w:50,h:110,lx:235,ly:120},
+ {id:"4",name:"Table 4",seats:16,x:210,y:345,w:50,h:110,lx:235,ly:405},
+ {id:"5",name:"Table 5",seats:8,x:140,y:365,w:50,h:110,lx:165,ly:425}
 ];
 const $=s=>document.querySelector(s),tn=id=>TABLES.find(t=>t.id===id).name;
 const g=$("#tables");
