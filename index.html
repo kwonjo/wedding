@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-<title>Jo Kwon &amp; Drew Smith’s Wedding – Seating & Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Jo &amp; Drew’s Wedding – Seating & Menu</title>
 <style>
 :root{--bg:#fff;--card:#f2f8fc;--ink:#13294B;--mute:#4a5f7c;--blue:#7BAFD4;--navy:#13294B;--line:#d3e3f0;--onblue:#13294B;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
@@ -44,8 +44,8 @@ nav a{flex:1;text-align:center;padding:14px 4px;color:#cfe3f2;text-decoration:no
 nav a.on{color:#fff;background:#1d3d6e;box-shadow:inset 0 3px #7BAFD4}
 body,input,.card,.hint,.chip,.dish span,.menu h3,header small{font-family:Kalam,"Segoe Print","Bradley Hand",cursive}
 svg .lbl,svg .fl{font-family:Kalam,"Segoe Print",cursive}
-header h1,h2,.dish b,.badge,nav a{font-family:"Dancing Script","Brush Script MT",cursive;font-weight:700}
-header h1{font-size:38px;line-height:1.1}h2{font-size:34px}.dish b{font-size:25px}.badge{font-size:18px}nav a{font-size:19px}
+header h1,h2,.dish b,.badge,nav a{font-family:"Pinyon Script","Brush Script MT",cursive;font-weight:400}
+header h1{font-size:42px;line-height:1.15}h2{font-size:36px}.dish b{font-size:27px}.badge{font-size:20px}nav a{font-size:22px}
 .menu h3{font-weight:700;letter-spacing:.12em}
 .mapwrap{overflow-x:auto}body.planner svg{min-width:560px}
 #planner{display:none;margin-top:14px}body.planner #planner{display:block}
@@ -63,13 +63,14 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 </style>
 </head>
 <body>
-<header><small>Welcome</small><h1>Jo &amp; Drew’s Wedding</h1><p>01.17.2027 · The Merrimon Wynne House</p><p style="margin-top:6px;font-size:14px">Find your seat &amp; see tonight’s menu</p></header>
+<header><small>Welcome</small><h1>Jo &amp; Drew’s Wedding</h1><p>01.17.2027 · Raleigh, NC</p><p style="margin-top:6px;font-size:14px">Find your seat &amp; see tonight’s menu</p></header>
 <main>
 <section id="seating" class="on">
 <h2>Find Your Seat</h2>
+<p class="hint" style="font-size:17px;margin:0 0 12px">Welcome! Type your name to find your seat.</p>
 <input type="search" id="q" placeholder="Type your name…" autocomplete="off">
 <div class="res" id="res"></div>
-<p class="hint" id="qhint">Start typing to find your table.</p>
+<p class="hint" id="qhint"></p>
 </section>
 
 <section id="map">
