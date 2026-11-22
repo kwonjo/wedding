@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-<title>Jo K &amp; Drew S’s Wedding – Seating & Menu</title>
+<title>Jo &amp; Drew’s Wedding – Seating & Menu</title>
 <style>
 :root{--bg:#fff;--card:#f2f8fc;--ink:#13294B;--mute:#4a5f7c;--blue:#7BAFD4;--navy:#13294B;--line:#d3e3f0;--onblue:#13294B;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
@@ -36,7 +36,7 @@ svg{width:100%;height:auto;display:block}
 .fx{fill:#e6f1f9;stroke:#7BAFD4;stroke-width:1.5}
 .fl{font:11px system-ui,sans-serif;fill:#4a5f7c;text-anchor:middle}
 .menu h3{margin:22px 0 6px;font-weight:400;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-family:system-ui,sans-serif;border-bottom:2px solid #7BAFD4;padding-bottom:6px}
-.dish{padding:10px 0;border-bottom:1px solid var(--line)}
+.dish{padding:10px 0}
 .dish b{font-weight:600;font-size:18px}
 .dish span{display:block;color:var(--mute);font:14px system-ui,sans-serif;margin-top:2px}
 nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#13294B;border-top:3px solid #7BAFD4;padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -60,6 +60,11 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 .h{padding:10px 14px 10px 4px;font-size:24px}
 .menu h3{font-size:22px;font-weight:700;letter-spacing:.1em}
 .x{padding:8px 2px 8px 10px;color:var(--mute);font-size:18px;cursor:pointer}.x.d{color:#b3261e;font-weight:700}
+.menu h3{font-family:"Pinyon Script","Brush Script MT",cursive;font-weight:400;font-size:32px;letter-spacing:.01em;text-transform:none}
+.menu .dish b{font-family:Kalam,"Segoe Print","Bradley Hand",cursive;font-weight:700;font-size:18px}
+.guest span:not(.badge):not(.h):not(.x){font-family:"Pinyon Script","Brush Script MT",cursive;font-size:25px}
+.badge{font-family:Kalam,"Segoe Print",cursive;font-weight:700;font-size:15px}
+#plist .guest span:not(.badge):not(.h):not(.x){font-family:Kalam,"Segoe Print",cursive;font-size:17px}
 </style>
 </head>
 <body>
@@ -79,7 +84,7 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 <div class="mapwrap"><svg viewBox="0 0 320 530" role="img" aria-label="Reception floor plan">
 <rect class="fx" x="100" y="8" width="120" height="26" rx="4"/><text class="fl" x="160" y="25">Bar</text>
 
-<rect class="fx" x="118" y="215" width="100" height="110" rx="4"/><text class="fl" x="168" y="274" style="font-size:14px">Dance Floor</text>
+<rect class="fx" id="dance" style="cursor:pointer" x="118" y="215" width="100" height="110" rx="4"/><text class="fl" x="168" y="274" style="font-size:14px;pointer-events:none">Dance Floor</text>
 <rect class="fx" x="240" y="250" width="44" height="40" rx="4"/><text class="fl" x="262" y="274">DJ</text>
 <g id="tables"></g>
 <text class="fl" x="160" y="515" style="font-size:13px">Outdoor Lounge ↓</text>
@@ -102,9 +107,9 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 <section id="menu" class="menu">
 <h2>Tonight’s Menu</h2>
 <h3>Drinks</h3>
-<div class="dish"><b>Beer</b></div>
-<div class="dish"><b>Wine</b></div>
-<h3 style="font-size:17px;letter-spacing:.03em;white-space:nowrap">Cocktail Hour’s Hors D’oeuvres</h3>
+<div class="dish"><b>Beer</b><span>Coors Light, Michelob Ultra, Corona, Blue Moon, Yuengling, Foothills Hoppyum IPA, Sierra Nevada, Allagash White, Carolina Sky Blue Kolsch (can), Trophy Wife / Trophy Husband (can)</span></div>
+<div class="dish"><b>Wine</b><span>Pinot Grigio, Chardonnay, Pinot Noir, Cabernet Sauvignon</span></div>
+<h3 style="font-size:25px;letter-spacing:0;white-space:nowrap">Cocktail Hour’s Hors D’oeuvres</h3>
 <div class="dish"><b>Avocado and Tomato Crostini</b><span>Traditional toasted crostini topped with mashed avocado, tomato relish, lemon oil, balsamic and Aleppo chili</span></div>
 <div class="dish"><b>Macaroni and Cheese Bites</b><span>Fried gruyere and cheddar macaroni and cheese bites topped with a truffle aioli</span></div>
 <div class="dish"><b>Figs in a Blanket</b><span>Spiced honey-glazed figs with goat cheese wrapped in puff pastry</span></div>
@@ -127,8 +132,141 @@ body.planner .guest,body.planner svg,.ghost,.h{-webkit-user-select:none;user-sel
 
 <script>
 /* ===== EDIT YOUR GUESTS HERE: ["Full Name", "tableId", optionalSeatNumber] (seats number down the left side first, then down the right) — ids: head, 1, 2, 3, 4, 5 ===== */
-const RAW="Mariko Azuma|Eunhee Bae|Pete Bearden|Pam Bearden>Pete Bearden|Todd BenDor|Amanda BenDor>Todd BenDor|Arnom Bridgers|Cynthia Bridgers>Arnom Bridgers|Abby Cassario|Enoch Chang|Joanne Chen|Warren Christian|Erin Davis|Timothy Davis|Sherry Day|Ashley Dover>Lindsay Martin Oluyede|Zack Drum>Charlie Prior|Casey Garr|Reed Hodges|Anne Hu>Enoch Chang|Jiwoon Jeong|Jaie Johnson>Al Smith|Kennedy Kirtland>Reed Hodges|Jo Kwon|Youngsun Kwon|Louis Le>Edith March|Yichen Lee|Edith March|Lindsay Martin Oluyede|Sabrina McGee|Tim McGee>Sabrina McGee|Utsav Patel|Nandha Patel>Utsav Patel|Kelli Pratt>Joseph Smith|Charlie Prior|Steven Riley|Mary Riley>Steven Riley|Nora Schwaller|Jiyeon Shin|Al Smith|Joseph Smith|Drew Smith>Jo Kwon|Gigi Taylor|Mason Taylor>Casey Garr|Sadie Wilson>Warren Christian|Semi Yang>Youngsun Kwon|Soohyun Yoon|Keith Whitley|Karlee Schell|Kenzie Smith|Arlene Ramirez";
-let GUESTS=RAW.split("|").map(s=>{const p=s.split(">");return [p[0],"",null,p[1]||""];});
+/* ===== SEATING CHART: type a name between the quotes for each seat. Leave "" for an empty seat. =====
+   Seats go down the LEFT side first, then down the RIGHT side of each table. ===== */
+const SEATING={
+/* HEAD TABLE */
+"head":[
+"Eunhee Bae", /* head-1 left */
+"Abby Cassario", /* head-2 left */
+"Edith March", /* head-3 left */
+"Yichen Lee", /* head-4 left */
+"Jo Kwon", /* head-5 left */
+"Drew Smith", /* head-6 left */
+"Keith Whitley", /* head-7 left */
+"Kenzie Smith", /* head-8 left */
+"Reed Hodges", /* head-9 left */
+"Charlie Prior", /* head-10 left */
+"", /* head-11 right */
+"Zack Drum", /* head-12 right */
+"Louis Le", /* head-13 right */
+"Karlee Schell", /* head-14 right */
+"Arlene Ramirez", /* head-15 right */
+"Kennedy Kirtland", /* head-16 right */
+],
+/* TABLE 1 */
+"1":[
+"", /* 1-1 left */
+"", /* 1-2 left */
+"Amanda BenDor", /* 1-3 left */
+"Todd BenDor", /* 1-4 left */
+"Youngsun Kwon", /* 1-5 left */
+"Semi Yang", /* 1-6 left */
+"Joanne Chen", /* 1-7 left */
+"Gigi Taylor", /* 1-8 left */
+"", /* 1-9 right */
+"", /* 1-10 right */
+"Nora Schwaller", /* 1-11 right */
+"", /* 1-12 right */
+"", /* 1-13 right */
+"", /* 1-14 right */
+"Warren Christian", /* 1-15 right */
+"Sadie Wilson", /* 1-16 right */
+],
+/* TABLE 2 */
+"2":[
+"", /* 2-1 left */
+"Jaie Johnson", /* 2-2 left */
+"Al Smith", /* 2-3 left */
+"Cynthia Bridgers", /* 2-4 left */
+"Arnom Bridgers", /* 2-5 left */
+"", /* 2-6 left */
+"", /* 2-7 left */
+"", /* 2-8 left */
+"Tim McGee", /* 2-9 right */
+"Sabrina McGee", /* 2-10 right */
+"", /* 2-11 right */
+"", /* 2-12 right */
+"", /* 2-13 right */
+"", /* 2-14 right */
+"", /* 2-15 right */
+"", /* 2-16 right */
+],
+/* TABLE 3 */
+"3":[
+"", /* 3-1 left */
+"", /* 3-2 left */
+"", /* 3-3 left */
+"", /* 3-4 left */
+"", /* 3-5 left */
+"", /* 3-6 left */
+"", /* 3-7 left */
+"", /* 3-8 left */
+"", /* 3-9 right */
+"", /* 3-10 right */
+"", /* 3-11 right */
+"", /* 3-12 right */
+"", /* 3-13 right */
+"", /* 3-14 right */
+"", /* 3-15 right */
+"", /* 3-16 right */
+],
+/* TABLE 4 */
+"4":[
+"", /* 4-1 left */
+"", /* 4-2 left */
+"", /* 4-3 left */
+"", /* 4-4 left */
+"", /* 4-5 left */
+"", /* 4-6 left */
+"", /* 4-7 left */
+"", /* 4-8 left */
+"", /* 4-9 right */
+"", /* 4-10 right */
+"", /* 4-11 right */
+"", /* 4-12 right */
+"", /* 4-13 right */
+"", /* 4-14 right */
+"", /* 4-15 right */
+"", /* 4-16 right */
+],
+/* TABLE 5 */
+"5":[
+"", /* 5-1 left */
+"", /* 5-2 left */
+"", /* 5-3 left */
+"", /* 5-4 left */
+"", /* 5-5 right */
+"", /* 5-6 right */
+"", /* 5-7 right */
+"", /* 5-8 right */
+],
+};
+/* Guests not seated yet (just names): */
+const UNSEATED=["Mariko Azuma",
+"Pete Bearden",
+"Pam Bearden",
+"Enoch Chang",
+"Erin Davis",
+"Timothy Davis",
+"Sherry Day",
+"Ashley Dover",
+"Casey Garr",
+"Anne Hu",
+"Jiwoon Jeong",
+"Lindsay Martin",
+"Utsav Patel",
+"Nandha Patel",
+"Kelli Pratt",
+"Steven Riley",
+"Mary Riley",
+"Jiyeon Shin",
+"Joseph Smith",
+"Mason Taylor",
+"Soohyun Yoon"];
+let GUESTS=[];
+Object.keys(SEATING).forEach(t=>SEATING[t].forEach((n,i)=>{if(n)GUESTS.push([n,t,i+1,""]);}));
+UNSEATED.forEach(n=>GUESTS.push([n,"",null,""]));
 /* Head table: 10 seats left (1–10), 6 right (11–16) = 16. Tables 1–4 seat 16; table 5 seats 8. Total 88. */
 const TABLES=[
 {id:"head",name:"Head Table",seats:16,x:20,y:205,w:38,h:130,lx:39,ly:270},
@@ -171,7 +309,7 @@ function pick(id,seat){
  const h=document.createElement("b");h.textContent=t.name+" · "+t.seats+" seats";b.appendChild(h);
  const lb=id==="head"?"Head":id;
  if(!l.length){const p=document.createElement("div");p.className="hint";p.textContent="No guests listed yet.";b.appendChild(p);}
- l.forEach(x=>{const p=document.createElement("div");p.style.cssText="padding:4px 0;font-size:16px";p.textContent=(x[2]?lb+"-"+x[2]+"  ":"")+x[0];if(seat&&x[2]===seat)p.style.fontWeight="700";b.appendChild(p);});
+ l.forEach(x=>{const p=document.createElement("div");p.style.cssText="padding:4px 0;font-size:16px";const a=document.createElement("span");a.textContent=x[2]?lb+"-"+x[2]+"  ":"";a.style.cssText="font-weight:700;font-size:15px";const nm=document.createElement("span");nm.textContent=x[0];nm.style.cssText='font-size:17px';p.append(a,nm);if(seat&&x[2]===seat){p.style.background="#7BAFD4";p.style.color="#13294B";p.style.borderRadius="8px";p.style.padding="4px 8px";}b.appendChild(p);});
 }
 function search(){
  const v=$("#q").value.trim().toLowerCase(),r=$("#res");r.textContent="";
@@ -188,9 +326,9 @@ function search(){
 }
 $("#q").addEventListener("input",search);
 let editing=false,sel=null,drag=null,rs=0,delIdx=null;
-try{const s=JSON.parse(localStorage.getItem("seating2")||"null");if(Array.isArray(s)&&s.length)GUESTS=s;}catch(e){}
+try{const s=JSON.parse(localStorage.getItem("seating6")||"null");if(Array.isArray(s)&&s.length)GUESTS=s;}catch(e){}
 const pm=t=>{$("#pmsg").textContent=t;};
-function save(){try{localStorage.setItem("seating2",JSON.stringify(GUESTS));}catch(e){}}
+function save(){try{localStorage.setItem("seating6",JSON.stringify(GUESTS));}catch(e){}}
 function at(t,s){return GUESTS.findIndex(x=>x[1]===t&&x[2]===s);}
 function paint(){
  document.querySelectorAll(".seat").forEach(e=>{const p=e.id.slice(1).split("-");e.classList.toggle("occ",at(p[0],+p[1])>-1);if(sel!==null)e.classList.toggle("me",GUESTS[sel][1]===p[0]&&GUESTS[sel][2]===+p[1]);});
@@ -213,7 +351,7 @@ function assign(i,t,s){
  pm(g[0]+" → "+tn(t)+", seat "+s);
 }
 function seatTap(t,s){
- if(!editing){pick(t,s);return;}
+ if(!editing){pick(t,s);$("#tinfo").scrollIntoView({block:"nearest",behavior:"smooth"});return;}
  const o=at(t,s);
  if(sel!==null)assign(sel,t,s);
  else if(o>-1){sel=o;pm("Selected "+GUESTS[o][0]+" — tap another seat to move or swap.");paint();}
@@ -242,7 +380,7 @@ $("#lockbtn").onclick=()=>{editing=!editing;document.body.classList.toggle("edit
 $("#copybtn").onclick=()=>{const t="let GUESTS="+JSON.stringify(GUESTS)+";",o=$("#out");o.style.display="block";o.value=t;o.focus();o.select();o.setSelectionRange(0,t.length);let ok=false;try{ok=document.execCommand("copy");}catch(e){}
  if(ok)pm("Copied! Paste it into your chat with Claude and send.");
  else{try{navigator.clipboard.writeText(t).then(()=>pm("Copied! Paste it into your chat with Claude and send."),()=>pm("Press and hold the text below, choose Select All, then Copy."));}catch(e){pm("Press and hold the text below, choose Select All, then Copy.");}}};
-$("#resetbtn").onclick=()=>{if(!rs){rs=1;$("#resetbtn").textContent="Tap again to confirm";return;}try{localStorage.removeItem("seating2");}catch(e){}location.reload();};
+$("#resetbtn").onclick=()=>{if(!rs){rs=1;$("#resetbtn").textContent="Tap again to confirm";return;}try{localStorage.removeItem("seating6");}catch(e){}location.reload();};
 $("#loadbtn").onclick=()=>{
  if(!editing){pm("Tap Unlock to edit first, then load the list.");return;}
  try{
@@ -261,6 +399,20 @@ function addGuest(){
 $("#addbtn").onclick=addGuest;
 $("#addn").addEventListener("keydown",e=>{if(e.key==="Enter")addGuest();});
 $("#pf").addEventListener("input",paint);
+function confetti(x,y){
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ const c=document.createElement("canvas");c.style.cssText="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:99";
+ c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
+ const g=c.getContext("2d"),cols=["#7BAFD4","#13294B","#a9cfe9","#4b86b4","#c9d6e2"];
+ const P=Array.from({length:130},()=>({x,y,vx:(Math.random()-.5)*14,vy:-Math.random()*14-4,w:6+Math.random()*6,h:4+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[Math.random()*cols.length|0]}));
+ let f=0;
+ (function t(){
+  g.clearRect(0,0,c.width,c.height);
+  P.forEach(p=>{p.vy+=.35;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillStyle=p.c;g.fillRect(-p.w/2,-p.h/2,p.w,p.h);g.restore();});
+  if(++f<160)requestAnimationFrame(t);else c.remove();
+ })();
+}
+$("#dance").addEventListener("click",e=>confetti(e.clientX,e.clientY));
 function route(){
  const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();
  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===k));
