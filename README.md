@@ -1,4 +1,4 @@
-### Wedding seating chart 
+### Seating chart 
 Find Table
 ### Floorplan
 ### Menu
