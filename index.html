@@ -89,7 +89,7 @@ main > section::after {
 }
 .seat.me{fill:#13294B!important;stroke:#7BAFD4!important;stroke-width:4!important}
 #tinfo [role="button"]:focus-visible{outline:2px solid #7BAFD4;outline-offset:2px;border-radius:6px}
-.bgrid{display:grid;grid-template-columns:repeat(5,1fr);border:2px solid var(--line);border-radius:10px;overflow:hidden;margin-top:12px}
+.bgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:2px solid var(--line);border-radius:10px;overflow:hidden;margin-top:12px}
 .bc{position:relative;aspect-ratio:1/1.05;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 2px;margin:0;font:700 11.5px/1.15 Kalam,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-user-select:none;user-select:none}
 .bc[aria-pressed=true]{background:rgba(123,175,212,.22)}
 .bc svg{position:absolute;left:2px;top:2px;width:calc(100% - 4px);height:calc(100% - 4px);pointer-events:none;overflow:visible}
@@ -100,6 +100,9 @@ main > section::after {
 a.bc.ctr{cursor:pointer}
 .bc{font-size:14.5px;line-height:1.1}
 .bc span{display:block;max-width:100%}
+.bwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:12px}
+.bwrap .bgrid{margin-top:0}
+.bc{min-width:0}
 </style>
 </head>
 <body>
@@ -166,10 +169,10 @@ a.bc.ctr{cursor:pointer}
 </section>
 <section id="bingo">
 <h2>Capture the Moment Bingo</h2>
-<p class="hint" style="font-size:16px;margin:0 0 8px"><b>This is the virtual card.</b> A paper card is also provided if you’d rather play on paper.</p>
-<p class="hint" style="font-size:16px;margin:0 0 4px">Find the wedding moment, snap a photo, and upload it to the QR code. First one to get a blackout wins! Please tell a Man of Honor or Bestman!</p>
-<p class="hint" style="margin:0">Tap a square after you take its photo. It stays circled.</p>
-<div class="bgrid" id="bgrid"></div>
+<p class="hint" style="font-size:16px;margin:0 0 6px"><b>Virtual card</b> · paper cards are provided too</p>
+<p class="hint" style="font-size:16px;margin:0 0 6px">Snap each moment, upload it to the QR code, then tap its square.</p>
+<p class="hint" style="font-size:16px;margin:0"><b>Blackout wins!</b><br>Tell the Man of Honor or Bestman.</p>
+<div class="bwrap" id="bwrap"><div class="bgrid" id="bgrid"></div></div>
 <p class="hint" id="bstat" style="text-align:center;font-size:16px"></p>
 <div style="text-align:center"><button class="btn" id="bclear">Clear my card</button></div>
 </section>
@@ -448,15 +451,22 @@ function confetti(x,y){
  })();
 }
 $("#dance").addEventListener("click",e=>confetti(e.clientX,e.clientY));
-const ZL=[1,1.6,2.2,3];let zi=0;
+const ZL=[1,1.6,2.2,3],BZ=[1,1.5,2];let zi=0,bi=0,curTab="seating";
+function zstate(){const b=curTab==="bingo",i=b?bi:zi,n=(b?BZ:ZL).length;$("#zin").disabled=i>=n-1;$("#zout").disabled=i<=0;}
 function zoom(d){
- zi=Math.min(ZL.length-1,Math.max(0,zi+d));
- const w=$(".mapwrap"),v=w.querySelector("svg");
- v.style.width=(ZL[zi]*100)+"%";v.style.maxWidth="none";
- w.scrollLeft=(w.scrollWidth-w.clientWidth)/2;
- $("#zin").disabled=zi===ZL.length-1;$("#zout").disabled=zi===0;
+ if(curTab==="bingo"){
+  bi=Math.min(BZ.length-1,Math.max(0,bi+d));
+  $("#bgrid").style.width=(BZ[bi]*100)+"%";bfit();
+  const w=$("#bwrap");w.scrollLeft=(w.scrollWidth-w.clientWidth)/2;
+ }else{
+  zi=Math.min(ZL.length-1,Math.max(0,zi+d));
+  const w=$(".mapwrap"),v=w.querySelector("svg");
+  v.style.width=(ZL[zi]*100)+"%";v.style.maxWidth="none";
+  w.scrollLeft=(w.scrollWidth-w.clientWidth)/2;
+ }
+ zstate();
 }
-$("#zin").onclick=()=>zoom(1);$("#zout").onclick=()=>zoom(-1);$("#zout").disabled=true;
+$("#zin").onclick=()=>zoom(1);$("#zout").onclick=()=>zoom(-1);
 function floaty(x,y,chars,n,col){
  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
  for(let i=0;i<n;i++){
@@ -516,13 +526,13 @@ let bcs=0;
 $("#bclear").onclick=()=>{if(!bcs){bcs=1;$("#bclear").textContent="Tap again to clear";return;}bcs=0;$("#bclear").textContent="Clear my card";bm.clear();try{localStorage.removeItem("bingo1");}catch(x){}bpaint();};
 bpaint();
 function route(){
- const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu","bingo"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();$("#zoombtn").style.display=k==="map"?"flex":"none";
+ const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu","bingo"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();curTab=k;$("#zoombtn").style.display=(k==="map"||k==="bingo")?"flex":"none";zstate();
  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===k));
  document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===k));
  if(k==="bingo")bfit();
  window.scrollTo(0,0);
 }
-function bfit(){document.querySelectorAll("#bgrid .bc[data-i]").forEach(b=>{const sp=b.firstElementChild;if(!sp||sp.tagName!=="SPAN")return;let z=14.5;b.style.fontSize=z+"px";while(z>10&&(sp.scrollWidth>sp.clientWidth+1||sp.offsetHeight>b.clientHeight-8)){z-=.5;b.style.fontSize=z+"px";}});}
+function bfit(){document.querySelectorAll("#bgrid .bc[data-i]").forEach(b=>{const sp=b.firstElementChild;if(!sp||sp.tagName!=="SPAN")return;let z=14.5*BZ[bi];b.style.fontSize=z+"px";while(z>8&&(sp.scrollWidth>sp.clientWidth+1||sp.offsetHeight>b.clientHeight-8)){z-=.5;b.style.fontSize=z+"px";}});}
 addEventListener("hashchange",route);route();
 addEventListener("resize",()=>{if($("#bingo").classList.contains("on"))bfit();});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($("#bingo").classList.contains("on"))bfit();});
