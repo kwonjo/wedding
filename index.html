@@ -89,6 +89,17 @@ main > section::after {
 }
 .seat.me{fill:#13294B!important;stroke:#7BAFD4!important;stroke-width:4!important}
 #tinfo [role="button"]:focus-visible{outline:2px solid #7BAFD4;outline-offset:2px;border-radius:6px}
+.bgrid{display:grid;grid-template-columns:repeat(5,1fr);border:2px solid var(--line);border-radius:10px;overflow:hidden;margin-top:12px}
+.bc{position:relative;aspect-ratio:1/1.05;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 2px;margin:0;font:700 11.5px/1.15 Kalam,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.bc[aria-pressed=true]{background:rgba(123,175,212,.22)}
+.bc svg{position:absolute;left:2px;top:2px;width:calc(100% - 4px);height:calc(100% - 4px);pointer-events:none;overflow:visible}
+.bc svg path{fill:none;stroke:#7BAFD4;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.bc svg.draw path{stroke-dasharray:1;stroke-dashoffset:1;animation:dr .5s ease-out forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.bc.ctr{background:#13294B;color:#fff;cursor:default;text-decoration:none;font-size:12px}
+a.bc.ctr{cursor:pointer}
+.bc{font-size:14.5px;line-height:1.1}
+.bc span{display:block;max-width:100%}
 </style>
 </head>
 <body>
@@ -153,9 +164,18 @@ main > section::after {
 <div class="dish"><b>Wedding Cake</b><span>Vanilla cake with raspberry filling<br>Red velvet cake with cream cheese filling</span></div>
 <div class="dish"><b>Cupcakes</b><span>Buttercream icing on chocolate cake<br>Buttercream icing on Superfetti cake<br>Cream Cheese icing on vanilla cake<br>Cookies and Cream Mousse on vanilla cake<br>Cookies and Cream Mousse on vanilla and chocolate cake<br>Fudge icing on chocolate cake</span></div>
 </section>
+<section id="bingo">
+<h2>Capture the Moment Bingo</h2>
+<p class="hint" style="font-size:16px;margin:0 0 8px"><b>This is the virtual card.</b> A paper card is also provided if you’d rather play on paper.</p>
+<p class="hint" style="font-size:16px;margin:0 0 4px">Find the wedding moment, snap a photo, and upload it to the QR code. First one to get a blackout wins! Please tell a Man of Honor or Bestman!</p>
+<p class="hint" style="margin:0">Tap a square after you take its photo. It stays circled.</p>
+<div class="bgrid" id="bgrid"></div>
+<p class="hint" id="bstat" style="text-align:center;font-size:16px"></p>
+<div style="text-align:center"><button class="btn" id="bclear">Clear my card</button></div>
+</section>
 </main>
 <div id="zoombtn"><button class="zb" id="zin" aria-label="Zoom in">+</button><button class="zb" id="zout" aria-label="Zoom out">&minus;</button></div>
-<nav><a href="#seating" data-t="seating">Find Seat</a><a href="#map" data-t="map">Floor Plan</a><a href="#menu" data-t="menu">Menu</a></nav>
+<nav><a href="#seating" data-t="seating">Find Seat</a><a href="#map" data-t="map">Floor Plan</a><a href="#menu" data-t="menu">Menu</a><a href="#bingo" data-t="bingo">Bingo</a></nav>
 
 <script>
 /* ===== EDIT YOUR GUESTS HERE: ["Full Name", "tableId", optionalSeatNumber] (seats number down the left side first, then down the right) — ids: head, 1, 2, 3, 4, 5 ===== */
@@ -450,13 +470,62 @@ function floaty(x,y,chars,n,col){
 }
 $("#dj").addEventListener("click",e=>floaty(e.clientX,e.clientY,["\u266A","\u266B","\u266A","\u266B","\u266A","\u266B"],6,"#4b86b4"));
 $("#bar").addEventListener("click",e=>floaty(e.clientX,e.clientY,["\uD83C\uDF7A","\uD83C\uDF77","\uD83C\uDF7A","\uD83C\uDF77"],4));
+const UPLOAD_URL="";/* paste the photo-upload link between the quotes later */
+const BINGO=["Best dance move","Romantic moment","Jo & Drew","Your selfie","Someone you didn’t know","Groomsman","Group cheers!","Bride’s mom or dad","Groom’s mom or dad","Bridesmaid","Besties dancing","Funny face",null,"Man of honor or Bestman","With sunglasses","With someone you love","Hug","Favorite moment","What you see from your seat","Best dressed","Bride dancing","Craziest moment","With dessert","Chicken toss","Groom dancing"];
+const bm=new Set();try{JSON.parse(localStorage.getItem("bingo1")||"[]").forEach(i=>bm.add(i));}catch(e){}
+const BL=[];for(let r=0;r<5;r++){BL.push([0,1,2,3,4].map(c=>r*5+c));BL.push([0,1,2,3,4].map(c=>c*5+r));}
+BL.push([0,6,12,18,24],[4,8,12,16,20]);
+const blines=()=>BL.filter(l=>l.every(i=>i===12||bm.has(i))).length;
+const LOOPS=["M30 18C52 6 88 14 93 44C97 74 74 94 46 93C18 92 4 70 7 44C10 20 36 8 64 9","M70 16C44 6 12 18 8 48C4 78 30 94 58 92C86 90 96 66 92 40C89 18 66 8 36 13","M20 30C30 8 70 6 88 28C102 50 84 88 52 92C22 95 4 68 10 44C14 28 28 14 54 11"];
+function bpaint(nw){
+ document.querySelectorAll("#bgrid .bc[data-i]").forEach(b=>{
+  const i=+b.dataset.i,on=bm.has(i);
+  b.setAttribute("aria-pressed",on?"true":"false");
+  const old=b.querySelector("svg");if(old)old.remove();
+  if(on){
+   const NS="http://www.w3.org/2000/svg",sv=document.createElementNS(NS,"svg"),p=document.createElementNS(NS,"path");
+   sv.setAttribute("viewBox","0 0 100 100");sv.setAttribute("aria-hidden","true");
+   sv.style.transform="rotate("+((i%5)*2.4-4.8)+"deg)";
+   p.setAttribute("d",LOOPS[i%3]);p.setAttribute("pathLength","1");
+   if(i===nw)sv.setAttribute("class","draw");
+   sv.appendChild(p);b.appendChild(sv);
+  }
+ });
+ const n=blines(),f=bm.size;
+ $("#bstat").textContent=f===24?"Blackout! You found them all!":f+" of 24 found"+(n?" · "+n+" bingo"+(n>1?"s":"")+"!":"");
+}
+BINGO.forEach((t,i)=>{
+ let e;
+ if(t===null){
+  if(UPLOAD_URL){e=document.createElement("a");e.href=UPLOAD_URL;e.target="_blank";e.rel="noopener";e.textContent="Upload your photos";}
+  else{e=document.createElement("div");e.textContent="Photo upload link coming soon";}
+  e.className="bc ctr";
+ }else{
+  e=document.createElement("button");e.type="button";e.className="bc";e.dataset.i=i;{const sp=document.createElement("span");sp.textContent=t;e.appendChild(sp);}
+  e.onclick=ev=>{
+   const was=bm.size===24;
+   if(bm.has(i))bm.delete(i);else bm.add(i);
+   try{localStorage.setItem("bingo1",JSON.stringify([...bm]));}catch(x){}
+   bpaint(bm.has(i)?i:-1);
+   if(bm.size===24&&!was){confetti(ev.clientX,ev.clientY);setTimeout(()=>confetti(innerWidth*.25,innerHeight*.4),250);setTimeout(()=>confetti(innerWidth*.75,innerHeight*.4),450);}
+  };
+ }
+ $("#bgrid").appendChild(e);
+});
+let bcs=0;
+$("#bclear").onclick=()=>{if(!bcs){bcs=1;$("#bclear").textContent="Tap again to clear";return;}bcs=0;$("#bclear").textContent="Clear my card";bm.clear();try{localStorage.removeItem("bingo1");}catch(x){}bpaint();};
+bpaint();
 function route(){
- const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();$("#zoombtn").style.display=k==="map"?"flex":"none";
+ const h0=(location.hash||"#seating").slice(1),pl=h0==="edit",h=pl?"map":h0;const k=["seating","map","menu","bingo"].includes(h)?h:"seating";document.body.classList.toggle("planner",pl);if(!pl&&editing)$("#lockbtn").click();if(pl)paint();$("#zoombtn").style.display=k==="map"?"flex":"none";
  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===k));
  document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===k));
+ if(k==="bingo")bfit();
  window.scrollTo(0,0);
 }
+function bfit(){document.querySelectorAll("#bgrid .bc[data-i]").forEach(b=>{const sp=b.firstElementChild;if(!sp||sp.tagName!=="SPAN")return;let z=14.5;b.style.fontSize=z+"px";while(z>10&&(sp.scrollWidth>sp.clientWidth+1||sp.offsetHeight>b.clientHeight-8)){z-=.5;b.style.fontSize=z+"px";}});}
 addEventListener("hashchange",route);route();
+addEventListener("resize",()=>{if($("#bingo").classList.contains("on"))bfit();});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($("#bingo").classList.contains("on"))bfit();});
 </script>
 </body>
 </html>
