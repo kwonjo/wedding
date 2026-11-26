@@ -121,6 +121,12 @@ a.bc.ctr{cursor:pointer}
 
 /* Add one row of breathing room above the venue illustration. */
 #seating .sketch{margin-top:24px}
+#menu .drinks-end{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#menu .drinks-end>div{min-width:0}
+#menu .drink-sketch{width:96px;min-width:0!important;min-width:0;height:auto;flex:0 0 96px;color:var(--navy);transform:none;margin-right:16px;pointer-events:none}
+@media(max-width:380px){#menu .drink-sketch{width:74px;flex-basis:74px}}
+#menu .cake-sketch{width:116px;flex-basis:116px;margin-right:26px}
+@media(max-width:380px){#menu .cake-sketch{width:90px;flex-basis:90px;margin-right:22px}}
 </style>
 </head>
 <body>
@@ -166,7 +172,7 @@ a.bc.ctr{cursor:pointer}
 <h3>Drinks</h3>
 <div class="dish"><b>Beer</b><span>Michelob Ultra, Corona, Foothills Hoppyum IPA, Carolina Sky Blue Kolsch (can), Blue Moon, Coors Light, Yuengling, Allagash White, Trophy Wife/Trophy Husband (can) - need to choose 4 probably the first four</span></div>
 <div class="dish"><b>Wine</b><span>Pinot Grigio, Chardonnay, Pinot Noir, Cabernet Sauvignon</span></div>
-<div class="dish"><b>Non-Alcoholic Beverages</b><span>Coke, Diet Coke, Sprite, Ginger Ale</span></div>
+<div class="dish drinks-end"><div><b>Non-Alcoholic Beverages</b><span>Coke, Diet Coke, Sprite, Ginger Ale</span></div><svg class="drink-sketch" viewBox="0 0 140 112" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 31 C9 28 12 20 19 19 C17 12 26 9 32 13 C36 3 49 5 53 13 C61 10 68 16 66 23 C74 28 66 35 57 33 C49 32 43 37 35 34 C28 30 23 35 16 31 Z M17 34 C19 54 25 76 26 92 C26 99 56 100 57 92 C57 75 63 52 65 34 M21 43 C32 49 50 49 61 43 M27 51 C29 63 32 75 33 84 M31 90 C38 94 47 94 53 90"/><path d="M85 13 C89 7 113 7 119 13 C116 20 90 20 85 13 Z M85 14 C82 25 76 39 77 50 C78 64 87 69 96 74 C100 78 99 89 98 94 C97 97 90 98 86 100 C78 105 91 108 102 108 C114 108 127 104 119 100 C115 98 107 97 106 94 C105 87 104 78 108 74 C118 68 126 62 127 50 C128 38 122 25 119 14 M81 44 C91 38 113 38 123 44 C113 51 91 51 81 44 Z M84 53 C86 61 92 66 98 68 M97 101 C100 102 105 102 108 101"/></g></svg></div>
 <h3 style="font-size:26px;letter-spacing:0;white-space:nowrap">Cocktail Hour’s Hors D’oeuvres</h3>
 <div class="dish"><b>Avocado and Tomato Crostini</b><span>Traditional toasted crostini topped with mashed avocado, tomato relish, lemon oil, balsamic and Aleppo chili</span></div>
 <div class="dish"><b>Macaroni and Cheese Bites</b><span>Fried gruyere and cheddar macaroni and cheese bites topped with a truffle aioli</span></div>
@@ -183,7 +189,7 @@ a.bc.ctr{cursor:pointer}
 <div class="dish"><b>Brown Butter Mashed Potatoes</b><span>Creamy Yukon gold mashed potatoes with brown butter</span></div>
 <h3>Desserts</h3>
 <div class="dish"><b>Wedding Cake</b><span>Vanilla cake with raspberry filling<br>Red velvet cake with cream cheese filling</span></div>
-<div class="dish"><b>Cupcakes</b><span>Buttercream icing on chocolate cake<br>Buttercream icing on Superfetti cake<br>Cream Cheese icing on vanilla cake<br>Cookies and Cream Mousse on vanilla cake<br>Cookies and Cream Mousse on vanilla and chocolate cake<br>Fudge icing on chocolate cake</span></div>
+<div class="dish drinks-end"><div><b>Cupcakes</b><span>Buttercream icing on chocolate cake<br>Buttercream icing on Superfetti cake<br>Cream Cheese icing on vanilla cake<br>Cookies and Cream Mousse on vanilla cake<br>Cookies and Cream Mousse on vanilla and chocolate cake<br>Fudge icing on chocolate cake</span></div><svg class="drink-sketch cake-sketch" viewBox="0 0 140 145" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M43 19 C44 8 98 8 99 19 C99 29 43 30 43 19 Z M43 20 L43 52 Q69 65 99 52 L99 20 M43 45 C17 47 15 58 27 63 Q69 78 115 62 C126 56 117 47 99 45 M21 57 L22 94 Q67 113 119 94 L120 57 M22 90 Q68 108 119 90"/><path d="M78 15 Q65 33 78 46 Q91 61 76 73 Q63 87 87 102 M73 33 Q58 30 55 24 Q65 22 73 33 M80 50 Q95 41 101 44 Q98 52 80 50 M72 81 Q57 79 53 85 Q62 90 72 81 M83 94 Q98 86 103 90 Q98 99 83 94"/><g transform="translate(78 16) scale(1.0)"><path d="M0 0 C-12 -2 -9 -12 -3 -7 C-1 -16 8 -12 5 -5 C15 -7 16 3 7 4 C12 12 2 15 0 7 C-8 14 -14 5 0 0 Z"/><path d="M0 1 l2 2"/></g><g transform="translate(73 35) scale(0.8333333333333334)"><path d="M0 0 C-12 -2 -9 -12 -3 -7 C-1 -16 8 -12 5 -5 C15 -7 16 3 7 4 C12 12 2 15 0 7 C-8 14 -14 5 0 0 Z"/><path d="M0 1 l2 2"/></g><g transform="translate(82 53) scale(1.0)"><path d="M0 0 C-12 -2 -9 -12 -3 -7 C-1 -16 8 -12 5 -5 C15 -7 16 3 7 4 C12 12 2 15 0 7 C-8 14 -14 5 0 0 Z"/><path d="M0 1 l2 2"/></g><g transform="translate(74 74) scale(1.0)"><path d="M0 0 C-12 -2 -9 -12 -3 -7 C-1 -16 8 -12 5 -5 C15 -7 16 3 7 4 C12 12 2 15 0 7 C-8 14 -14 5 0 0 Z"/><path d="M0 1 l2 2"/></g><g transform="translate(85 100) scale(1.1666666666666667)"><path d="M0 0 C-12 -2 -9 -12 -3 -7 C-1 -16 8 -12 5 -5 C15 -7 16 3 7 4 C12 12 2 15 0 7 C-8 14 -14 5 0 0 Z"/><path d="M0 1 l2 2"/></g><g transform="translate(13 112) scale(0.85)"><path d="M-10 0 Q-14 -4 -8 -7 Q-11 -12 -3 -13 Q-5 -18 1 -20 Q2 -15 7 -13 Q13 -11 9 -7 Q16 -4 11 0 Q0 5 -10 0 Z M-10 1 L-7 15 Q0 19 8 15 L11 1 M-4 5 L-3 13 M3 5 L3 14"/></g><g transform="translate(43 127) scale(0.9)"><path d="M-10 0 Q-14 -4 -8 -7 Q-11 -12 -3 -13 Q-5 -18 1 -20 Q2 -15 7 -13 Q13 -11 9 -7 Q16 -4 11 0 Q0 5 -10 0 Z M-10 1 L-7 15 Q0 19 8 15 L11 1 M-4 5 L-3 13 M3 5 L3 14"/></g><g transform="translate(100 127) scale(0.9)"><path d="M-10 0 Q-14 -4 -8 -7 Q-11 -12 -3 -13 Q-5 -18 1 -20 Q2 -15 7 -13 Q13 -11 9 -7 Q16 -4 11 0 Q0 5 -10 0 Z M-10 1 L-7 15 Q0 19 8 15 L11 1 M-4 5 L-3 13 M3 5 L3 14"/></g><g transform="translate(128 110) scale(0.85)"><path d="M-10 0 Q-14 -4 -8 -7 Q-11 -12 -3 -13 Q-5 -18 1 -20 Q2 -15 7 -13 Q13 -11 9 -7 Q16 -4 11 0 Q0 5 -10 0 Z M-10 1 L-7 15 Q0 19 8 15 L11 1 M-4 5 L-3 13 M3 5 L3 14"/></g></g></svg></div>
 </section>
 <section id="bingo">
 <h2 style="font-size:28px;margin:0 0 4px;white-space:nowrap">Capture the Moment Bingo</h2>
